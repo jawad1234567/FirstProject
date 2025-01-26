@@ -1,0 +1,79 @@
+<div class="page-wrapper">
+    <div class="register-page">
+      <div class="form-container">
+        <h1>Sign Up</h1>
+        <p>Create your account to start Shopping!</p>
+        <form (ngSubmit)="register()" #registerForm="ngForm">
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              [(ngModel)]="user.email"
+              #email="ngModel"
+              required
+            />
+            <div *ngIf="email.invalid && email.touched" class="error-message">
+              Please enter a valid email.
+            </div>
+          </div>
+  
+          <!-- Password Field -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              [(ngModel)]="user.password"
+              #password="ngModel"
+              required
+              minlength="6"
+              pattern="^(?=.*[A-Z]).*$"
+            />
+            <div *ngIf="password.errors?.['required'] && password.touched" class="error-message">
+              Password is required.
+            </div>
+            <div *ngIf="password.errors?.['minlength'] && password.touched" class="error-message">
+              Password must be at least 6 characters long.
+            </div>
+            <div *ngIf="password.errors?.['pattern'] && password.touched" class="error-message">
+              Password must contain at least one uppercase letter.
+            </div>
+          </div>
+          
+          <!-- Confirm Password Field -->
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              type="password"
+              name="confirmPassword"
+              [(ngModel)]="confirmPassword"
+              #confirmPasswordModel="ngModel"
+              required
+            />
+            <div
+              *ngIf="
+                confirmPasswordModel.touched &&
+                confirmPassword !== user.password
+              "
+              class="error-message"
+            >
+              Passwords do not match.
+            </div>
+          </div>
+  
+          <button type="submit" [disabled]="!registerForm.valid">Sign Up</button>
+        </form>
+        
+        <div class="navigate-login">
+          <p>Already have an account?</p>
+          <button (click)="navigateToLogin()" class="login-button">Log In</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

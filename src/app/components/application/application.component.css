@@ -1,0 +1,32 @@
+.application-page header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #020103;
+  color: white;
+}
+
+.header-icons button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.header-icons button:hover {
+  color: #ffdd57;
+}
+
+/* עיצוב לכפתור התנתקות */
+.header-icons button:last-child {
+  background-color: #ff6b6b;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.header-icons button:last-child:hover {
+  background-color: #ff3b3b;
+}

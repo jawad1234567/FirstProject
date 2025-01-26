@@ -1,0 +1,15 @@
+<div class="application-page">
+  <header>
+    <h1>Welcome</h1>
+    <div class="header-icons">
+      <button (click)="goToProducts()">🛒 Products</button>
+      <button (click)="goToCart()">🛍️ Cart</button>
+      <button (click)="logout()">Logout</button>
+
+    </div>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
