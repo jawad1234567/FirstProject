@@ -36,6 +36,17 @@ export class RegisterComponent {
       return;
     }
 
+    if (this.user.password !== this.confirmPassword) {
+      this.errorMessage = 'Passwords do not match!';
+      Swal.fire({
+        icon: 'error',
+        title: 'Registration Failed',
+        text: this.errorMessage,
+      });
+      return;
+    }
+    
+
     // Add the new user to local storage
     users.push({ ...this.user });
     localStorage.setItem('users', JSON.stringify(users));
