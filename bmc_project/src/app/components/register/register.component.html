@@ -14,10 +14,15 @@
               [(ngModel)]="user.email"
               #email="ngModel"
               required
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
             />
-            <div *ngIf="email.invalid && email.touched" class="error-message">
-              Please enter a valid email.
+            <div *ngIf="email.errors?.['required'] && email.touched" class="error-message">
+              Email is required.
             </div>
+            <div *ngIf="email.errors?.['pattern'] && email.touched" class="error-message">
+              Please enter a valid email address.
+            </div>
+
           </div>
   
           <!-- Password Field -->
